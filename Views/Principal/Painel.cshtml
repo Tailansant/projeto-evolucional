@@ -1,0 +1,23 @@
+@{
+    ViewData["Title"] = "Painel";
+}
+
+<h2>Painel de Controle</h2>
+
+<form method="post" asp-action="PopularBanco">
+    <button type="submit">Botão 1</button>
+</form>
+
+<form method="post" asp-action="GerarRelatorio">
+    <button type="submit">Botão 2</button>
+</form>
+
+@if (ViewBag.Mensagem != null)
+{
+    <p style="color: green;">@ViewBag.Mensagem</p>
+}
+
+@if (ViewBag.DownloadLink != null)
+{
+    <p><a href="@ViewBag.DownloadLink">Clique aqui para baixar o relatório</a></p>
+}

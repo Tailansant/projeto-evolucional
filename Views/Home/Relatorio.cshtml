@@ -1,0 +1,39 @@
+@model List<ProjetoEvolucional.Models.Aluno>
+
+@{
+    ViewData["Title"] = "Relatório de Alunos";
+}
+
+<h2>Relatório de Alunos</h2>
+
+<table border="1" cellpadding="5">
+    <tr>
+        <th>ID</th>
+        <th>Nome</th>
+        <th>Disciplinas e Notas</th>
+    </tr>
+    @foreach (var aluno in Model)
+    {
+        <tr>
+            <td>@aluno.Id</td>
+            <td>@aluno.Nome</td>
+            <td>
+                @if (aluno.Notas != null && aluno.Notas.Any())
+                {
+                    <ul>
+                        @foreach (var nota in aluno.Notas)
+                        {
+                            <li>@nota.Disciplina?.Nome: @nota.Valor</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <span>Sem notas registradas</span>
+                }
+            </td>
+        </tr>
+    }
+</table>
+
+<a href="/">Voltar</a>

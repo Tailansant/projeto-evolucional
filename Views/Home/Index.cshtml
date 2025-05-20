@@ -1,0 +1,18 @@
+﻿@{
+    ViewData["Title"] = "Página Principal";
+}
+
+<h2>Página Principal</h2>
+
+<form method="post" asp-action="InserirDados">
+    <button type="submit">Botão 1 - Inserir dados</button>
+</form>
+
+<form method="post" asp-action="GerarRelatorio" style="margin-top: 10px;">
+    <button type="submit">Botão 2 - Gerar relatório</button>
+</form>
+
+@if (ViewBag.Mensagem != null)
+{
+    <p style="color:green;">@ViewBag.Mensagem</p>
+}
